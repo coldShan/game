@@ -3,6 +3,6 @@
 
 ![clock.gif](http://upload-images.jianshu.io/upload_images/3259386-22224cb4eb7d469b.gif?imageMogr2/auto-orient/strip)
 
-# 鱼（完成中）
+# 小鱼游戏（完成中）
 
-![fish-game.gif](http://upload-images.jianshu.io/upload_images/3259386-e7fe137b800dc0cb.gif?imageMogr2/auto-orient/strip)
+![fish.jpg](http://upload-images.jianshu.io/upload_images/3259386-f34a8f0ce61732ec.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240))

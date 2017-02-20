@@ -56,6 +56,11 @@ fruitObj.prototype.born = function (i) {
     this.y[i] = canHeight - ane.len[aneId];
     this.l[i] = 0;
     this.alive[i] = true;
+
+fruitObj.prototype.dead = function(i) {
+    this.alive[i] = false;
+}
+
     // 结出蓝色或者橙色果实
     var ran = Math.random();
     if(ran < 0.2) {
