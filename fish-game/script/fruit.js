@@ -7,6 +7,7 @@ var fruitObj = function () {
     this.fruitType = [];
     this.orange = new Image();
     this.blue = new Image();
+    this.aneId = [];
 }
 fruitObj.prototype.num = 30; //果实数量
 
@@ -17,6 +18,7 @@ fruitObj.prototype.init = function () {
         this.x[i] = 0;
         this.y[i] = 0;
         this.l[i] = 0;
+        this.aneId[i] = 0;
         this.speed[i] = Math.random() * 0.017 + 0.003; //[0.003, 0.02)
         this.fruitType[i] = "";
     }
@@ -35,7 +37,10 @@ fruitObj.prototype.draw = function () {
                 var pic = this.orange;
             }
             if (this.l[i] <= 15) {
-                this.l[i] += this.speed[i] * deltaTime;
+                var no = this.aneId[i];
+                this.x[i] = ane.headx[no];
+                this.y[i] = ane.heady[no];
+                this.l[i] += this.speed[i] * deltaTime * 0.5;
             } else {
                 this.y[i] -= this.speed[i] * 5 * deltaTime;
             }
@@ -51,15 +56,9 @@ fruitObj.prototype.draw = function () {
 
 //海葵果实生长
 fruitObj.prototype.born = function (i) {
-    var aneId = Math.floor(Math.random() * ane.num);
-    this.x[i] = ane.x[aneId];
-    this.y[i] = canHeight - ane.len[aneId];
+    this.aneId[i] = Math.floor(Math.random() * ane.num);
     this.l[i] = 0;
     this.alive[i] = true;
-
-fruitObj.prototype.dead = function(i) {
-    this.alive[i] = false;
-}
 
     // 结出蓝色或者橙色果实
     var ran = Math.random();
@@ -89,13 +88,5 @@ function sendFruit() {
             fruit.born(i);
             return;
         }
-    }
-}
-
-//更新屏幕海葵果实数量
-fruitObj.prototype.update = function () {
-    var num = 0;
-    for (var i = 0; i < this.num; i++) {
-        if (this.alive[i]) num++;
     }
 }

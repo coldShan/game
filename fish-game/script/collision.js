@@ -2,12 +2,12 @@
 function momFruitsCollision() {
     if(!data.gameOver) {
         for ( var i = 0; i < fruit.num; i++) {
-            if(fruit.alive[i]) {
+            if(fruit.alive[i] && fruit.l[i] > 15) {
                 var l = calLength2(fruit.x[i], fruit.y[i], mom.x, mom.y);
                 if(l < 900) {
                     // 果实被吃掉
                     data.fruitNum++;
-                    fruit.dead(i);
+                    fruit.alive[i] = false;
                     //大鱼改变颜色
                     mom.bigBodyCount++;
                     if(mom.bigBodyCount > 7) mom.bigBodyCount = 7;
@@ -34,5 +34,6 @@ function momBabyCollision() {
         // 更新得分
         data.printScore = data.score;
         data.fruitNum = 0;
+        halo.born(baby.x, baby.y);
     }
 }

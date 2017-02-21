@@ -27,6 +27,8 @@ var babyBody = []; //小鱼身体图片数组
 var data;
 var wave;
 var halo;
+var dust; //漂浮物
+var dustPic = [];
 
 document.body.onload = game;
 
@@ -60,6 +62,9 @@ function init() {
     baby = new babyObj();
     baby.init();
 
+    halo = new haloObj();
+    halo.init();
+
     mx = canWidth * 0.5;
     my  = canHeight * 0.5;
 
@@ -90,6 +95,12 @@ function init() {
     ctx1.textAlign = "center";
     wave = new waveObj();
     wave.init();
+    dust = new dustObj();
+    dust.init();
+    for(var i = 0; i < 7; i ++) {
+        dustPic[i] = new Image();
+        dustPic[i].src = "./image/src/dust" + i + ".png";
+    }
 }
 function gameLoop() {
     window.requestAnimFrame(gameLoop);
@@ -108,6 +119,8 @@ function gameLoop() {
     baby.draw(); //绘制小鱼
     data.draw(); // 绘制分值
     wave.draw();
+    halo.draw();
+    dust.draw();
     //console.log(deltaTime)
 }
 function onMouseMove(e) { //检测鼠标运动
@@ -118,4 +131,3 @@ function onMouseMove(e) { //检测鼠标运动
         }
     }
 }
-

@@ -5,7 +5,7 @@ var waveObj = function() {
     this.r = [];
 }
 
-waveObj.prototype.num = 10;
+waveObj.prototype.num = 5;
 waveObj.prototype.init = function() {
     for(var i = 0; i < this.num; i++) {
         this.alive[i] = false;
